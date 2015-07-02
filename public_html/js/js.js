@@ -165,7 +165,7 @@ function FiveCtrl($scope) {
         $scope.playChess(maxX, maxY, $scope.AI);
         if ((maxWeight >= 100000 && maxWeight < 250000) || (maxWeight >= 500000)) {
             $scope.AIWin();
-        }else {
+        } else {
             $scope.isPlayerTurn = true;
         }
     };
@@ -336,6 +336,7 @@ function FiveCtrl($scope) {
 
     //初始化游戏：
     $scope.InitGame = function () {
+        
         $scope.isOver = false;
         $scope.isPlayerTurn = true;
         var i, j;
@@ -357,7 +358,7 @@ function FiveCtrl($scope) {
             var index = $(this).index();
             //算出座标
             var i = index / 15 | 0;
-            var j = index % 15;
+            var j = index % 15 - 1;
             if ($scope.chessArr[i][j] === $scope.NoChess) {
                 $scope.playChess(i, j, $scope.player);
                 $(this).removeClass("hover");
@@ -373,7 +374,7 @@ function FiveCtrl($scope) {
             var index = $(this).index();
             //算出座标
             var i = index / 15 | 0;
-            var j = index % 15;
+            var j = index % 15 - 1;
             if ($scope.chessArr[i][j] === $scope.NoChess) {
                 $(this).addClass("hover");
             }
@@ -385,11 +386,11 @@ function FiveCtrl($scope) {
             var index = $(this).index();
             //算出座标
             var i = index / 15 | 0;
-            var j = index % 15;
+            var j = index % 15 - 1;
             if ($scope.chessArr[i][j] === $scope.NoChess) {
                 $(this).removeClass("hover");
             }
         });
     };
-
+    
 }
